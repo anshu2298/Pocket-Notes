@@ -35,7 +35,7 @@ const App = () => {
         group={groupData}
         onGroupAdd={fetchGroups}
         onGroupSelect={setSelectedGroup}
-        openSidebar={toggleSidebar}
+        manageSidebar={setIsSidebarOpen}
         isVisible={isSidebarOpen}
       />
       {selectedGroup ? (

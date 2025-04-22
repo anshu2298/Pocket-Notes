@@ -6,7 +6,7 @@ const Sidebar = ({
   onGroupAdd,
   onGroupSelect,
   isVisible,
-  openSidebar,
+  manageSidebar,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -37,7 +37,9 @@ const Sidebar = ({
               key={index}
               onClick={() => {
                 onGroupSelect(grp);
-                openSidebar();
+                if (window.innerWidth < 768) {
+                  manageSidebar(false);
+                }
               }}
             >
               <GroupIcons group={grp} />
