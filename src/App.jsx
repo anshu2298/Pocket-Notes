@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 const App = () => {
   const [groupData, setGroupData] = useState([]);
   const [selectedGroup, setSelectedGroup] = useState(null);
+
   const fetchGroups = () => {
     const groups =
       JSON.parse(localStorage.getItem("groups")) || [];
