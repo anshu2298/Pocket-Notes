@@ -4,7 +4,7 @@ import arrow from "../assets/arrow.png";
 import Notes from "./Notes";
 import { useState } from "react";
 import { addNoteToGroup } from "../utils/saveDataToLocalStorage";
-const NotesPage = ({ group, onNotesAdd }) => {
+const NotesPage = ({ group, onNotesAdd, openSidebar }) => {
   const [note, setNote] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,10 +14,14 @@ const NotesPage = ({ group, onNotesAdd }) => {
     setNote("");
     onNotesAdd();
   };
+
   return (
     <div className='notes-page'>
       <div className='notes-page-header'>
-        <button className='back-btn'>
+        <button
+          onClick={openSidebar}
+          className='back-btn'
+        >
           <img
             className='btn-img'
             src={arrow}

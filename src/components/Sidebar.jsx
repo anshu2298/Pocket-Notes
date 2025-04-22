@@ -1,7 +1,13 @@
 import { useState } from "react";
 import GroupIcons from "./GroupIcons";
 import AddGroupModal from "./AddGroupModal";
-const Sidebar = ({ group, onGroupAdd, onGroupSelect }) => {
+const Sidebar = ({
+  group,
+  onGroupAdd,
+  onGroupSelect,
+  isVisible,
+  openSidebar,
+}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSubmit = () => {
@@ -9,7 +15,12 @@ const Sidebar = ({ group, onGroupAdd, onGroupSelect }) => {
     onGroupAdd();
   };
   return (
-    <div className='sidebar'>
+    <div
+      className='sidebar'
+      style={{
+        display: isVisible ? "flex" : "none",
+      }}
+    >
       <div className='sidebar-header'>
         <h1>Pocket Notes</h1>
       </div>
@@ -24,7 +35,10 @@ const Sidebar = ({ group, onGroupAdd, onGroupSelect }) => {
             <button
               className='grp-btn'
               key={index}
-              onClick={() => onGroupSelect(grp)}
+              onClick={() => {
+                onGroupSelect(grp);
+                openSidebar();
+              }}
             >
               <GroupIcons group={grp} />
             </button>

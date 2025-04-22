@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 const App = () => {
   const [groupData, setGroupData] = useState([]);
   const [selectedGroup, setSelectedGroup] = useState(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const fetchGroups = () => {
     const groups =
@@ -20,6 +21,10 @@ const App = () => {
     }
   };
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen((prev) => !prev);
+  };
+
   useEffect(() => {
     fetchGroups();
   }, []);
@@ -30,11 +35,14 @@ const App = () => {
         group={groupData}
         onGroupAdd={fetchGroups}
         onGroupSelect={setSelectedGroup}
+        openSidebar={toggleSidebar}
+        isVisible={isSidebarOpen}
       />
       {selectedGroup ? (
         <NotesPage
           onNotesAdd={fetchGroups}
           group={selectedGroup}
+          openSidebar={toggleSidebar}
         />
       ) : (
         <MainArea />
