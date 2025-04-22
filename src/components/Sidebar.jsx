@@ -7,6 +7,7 @@ const Sidebar = ({
   onGroupSelect,
   isVisible,
   manageSidebar,
+  selectedGroup,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -33,7 +34,11 @@ const Sidebar = ({
         {group.map((grp, index) => {
           return (
             <button
-              className='grp-btn'
+              className={`grp-btn ${
+                selectedGroup?.groupName === grp.groupName
+                  ? "active"
+                  : ""
+              }`}
               key={index}
               onClick={() => {
                 onGroupSelect(grp);

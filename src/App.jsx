@@ -37,6 +37,7 @@ const App = () => {
         onGroupSelect={setSelectedGroup}
         manageSidebar={setIsSidebarOpen}
         isVisible={isSidebarOpen}
+        selectedGroup={selectedGroup}
       />
       {selectedGroup ? (
         <NotesPage
