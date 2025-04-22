@@ -1,0 +1,3 @@
+deployed link :- https://pocket-notes-ruby.vercel.app/
+
+GitHub repo link :- https://github.com/anshu2298/Pocket-Notes
